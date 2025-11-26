@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вовк і Заєць - Гра</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    
+    <div class="game-overlay">
+        <div class="game-info">
+            <div class="match-scores">
+                <div class="match-score">
+                    <span class="match-label">Матч:</span>
+                    <span class="score-display">
+                        <span class="rabbit-match">🐰 <span id="rabbit-match-score">0</span></span>
+                        <span class="vs">:</span>
+                        <span class="wolf-match">🐺 <span id="wolf-match-score">0</span></span>
+                    </span>
+                    <div id="speed-indicator" class="speed-indicator" style="display: none;">⚡ x1.0</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="game-status" id="game-status"></div>
+        
+        <div class="controls-info">
+            <span>Заєць: <kbd>Space</kbd></span>
+            <span>Вовк: <kbd>A</kbd></span>
+            <span class="start-hint">Натисніть <kbd>Space</kbd> щоб почати</span>
+        </div>
+        
+        <button id="settingsBtn" class="btn secondary settings-icon top-right">⚙️</button>
+        
+        <div class="game-controls">
+            <button id="startBtn" class="btn">Почати гру</button>
+            <button id="restartBtn" class="btn" style="display: none;">Перезапустити</button>
+        </div>
+        
+        <div id="settingsPanel" class="settings-panel" style="display: none;">
+            <div class="settings-content">
+                <h3>Налаштування стрибків</h3>
+                
+                <div class="setting-group">
+                    <label for="maxJumpHeight">Максимальна висота стрибку:</label>
+                    <div class="slider-container">
+                        <input type="range" id="maxJumpHeight" min="50" max="300" value="203" class="slider">
+                        <span id="maxJumpValue">200px</span>
+                    </div>
+                </div>
+                
+                <div class="setting-group">
+                    <label for="jumpBoostPower">Сила бусту:</label>
+                    <div class="slider-container">
+                        <input type="range" id="jumpBoostPower" min="0.1" max="1.0" step="0.1" value="0.4" class="slider">
+                        <span id="jumpBoostValue">0.6</span>
+                    </div>
+                </div>
+                
+                <div class="setting-group">
+                    <label for="jumpDistance">Дальність стрибку:</label>
+                    <div class="slider-container">
+                        <input type="range" id="jumpDistance" min="0" max="0.3" step="0.05" value="0.15" class="slider">
+                        <span id="jumpDistanceValue">0.15</span>
+                    </div>
+                </div>
+                
+                <div class="setting-group">
+                    <label for="playerPosition">Позиція персонажів:</label>
+                    <div class="slider-container">
+                        <input type="range" id="playerPosition" min="5" max="75" step="5" value="40" class="slider">
+                        <span id="playerPositionValue">40%</span>
+                    </div>
+                </div>
+                
+                <div class="settings-buttons">
+                    <button id="resetSettings" class="btn secondary">Скинути</button>
+                    <button id="closeSettings" class="btn">Закрити</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="sprites.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
